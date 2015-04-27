@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="#ffffff">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Class Name and Number"
+        android:textSize="20dp"
+        android:id="@+id/post_class"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Instructor"
+        android:textSize="20dp"
+        android:id="@+id/post_instructor"
+        android:layout_alignParentRight="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location"
+        android:textSize="20dp"
+        android:id="@+id/post_location"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/post_class"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Until"
+        android:textSize="20dp"
+        android:id="@+id/post_time"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/post_instructor"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>

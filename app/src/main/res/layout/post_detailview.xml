@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Class Name"
+        android:id="@+id/postdetail_classname"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textSize="24dp"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Created By : "
+        android:id="@+id/postdetail_createdby"
+        android:textSize="16dp"
+        android:layout_margin="10dp"
+        android:layout_below="@id/postdetail_classname"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email : "
+        android:id="@+id/postdetail_creatoremail"
+        android:textSize="16dp"
+        android:layout_margin="10dp"
+        android:layout_below="@id/postdetail_createdby"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Instructor Name"
+        android:id="@+id/postdetail_instructor"
+        android:textSize="16dp"
+        android:layout_margin="10dp"
+        android:layout_below="@id/postdetail_creatoremail"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location"
+        android:id="@+id/postdetail_location"
+        android:textSize="16dp"
+        android:layout_margin="10dp"
+        android:layout_below="@id/postdetail_instructor"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time Until.."
+        android:id="@+id/postdetail_time"
+        android:textSize="16dp"
+        android:layout_margin="10dp"
+        android:layout_below="@id/postdetail_location"/>
+
+    <IconTextView
+        android:text="{fa-times}"
+        android:id="@+id/postdetail_exit"
+        android:shadowColor="#22000000"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="1"
+        android:textSize="25dp"
+        android:textColor="#D8D8D8"
+        android:layout_margin="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/postdetail_time" />
+
+
+</RelativeLayout>

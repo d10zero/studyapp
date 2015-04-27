@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/blueborder"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account Info"
+        android:id="@+id/accountinfo_textView"
+        android:textStyle="bold"
+        android:textSize="24dp"
+        android:layout_margin="10dp"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="User First Name"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/accountinfo_firstname"
+        android:layout_margin="10dp"
+        android:layout_below="@id/accountinfo_textView" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="User Last Name"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/accountinfo_lastname"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/accountinfo_firstname" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="User WiscMail"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/accountinfo_wiscmail"
+        android:layout_below="@+id/accountinfo_lastname"
+        android:layout_margin="10dp"
+        android:editable="false"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="User Password"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/accountinfo_password"
+        android:layout_below="@+id/accountinfo_wiscmail"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="#0066b3"
+        android:text="SAVE"
+        android:textColor="#ffffff"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/accountinfo_password"
+        android:layout_margin="10dp"
+        android:id="@+id/accountinfo_save"/>
+
+</RelativeLayout>

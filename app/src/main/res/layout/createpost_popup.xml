@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/blueborder"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="Create a Study Post"
+        android:textSize="24dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/createpost_textView"
+        android:layout_margin="10dp"/>
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:hint="Name of Class"
+        android:id="@+id/createpost_nameofclass"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/createpost_textView"/>
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:hint="Name of Instuctor"
+        android:id="@+id/createpost_instructor"
+        android:layout_margin="10dp"
+        android:layout_below="@id/createpost_nameofclass"/>
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:hint="Location to Study"
+        android:id="@+id/createpost_location"
+        android:layout_margin="10dp"
+        android:layout_below="@id/createpost_instructor"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/createpost_location"
+        android:layout_margin="10dp">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:id="@+id/createpost_cancel"
+            android:layout_margin="10dp"
+            android:text="CANCEL"
+            android:textSize="20dp"
+            android:background="@drawable/blueborder"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:id="@+id/createpost_create"
+            android:text="CREATE"
+            android:textSize="20dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/blueborder"/>
+    </LinearLayout>
+
+</RelativeLayout>
