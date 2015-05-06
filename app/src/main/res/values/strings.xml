@@ -21,4 +21,130 @@
     <string name="potentialGroups"><i><b>Existing Groups</b></i></string>
     <string name="availableRooms"><i><b>Available Rooms</b></i></string>
     <string name="title_activity_group">GroupActivity</string>
+    <string name="until"><b>Until</b> </string>
+
+    <string-array name="betweenat">
+        <item>Between</item>
+        <item>Until</item>
+    </string-array>
+
+    <string-array name="times">
+        <item>8 am</item>
+        <item>9 am</item>
+        <item>10 am</item>
+        <item>11 am</item>
+        <item>12 pm</item>
+        <item>1 pm</item>
+        <item>2 pm</item>
+        <item>3 pm</item>
+        <item>4 pm</item>
+        <item>5 pm</item>
+        <item>6 pm</item>
+        <item>7 pm</item>
+        <item>8 pm</item>
+        <item>9 pm</item>
+        <item>10 pm</item>
+        <item>11 pm</item>
+        <item>12 pm</item>
+        <item>1 am</item>
+        <item>2 am</item>
+        <item>3 am</item>
+        <item>4 am</item>
+        <item>5 am</item>
+        <item>6 am</item>
+        <item>7 am</item>
+    </string-array>
+
+    <string-array name="times2">
+        <item>1 pm</item>
+        <item>2 pm</item>
+        <item>3 pm</item>
+        <item>4 pm</item>
+        <item>5 pm</item>
+        <item>6 pm</item>
+        <item>7 pm</item>
+        <item>8 pm</item>
+        <item>9 pm</item>
+        <item>10 pm</item>
+        <item>11 pm</item>
+        <item>12 pm</item>
+        <item>1 am</item>
+        <item>2 am</item>
+        <item>3 am</item>
+        <item>4 am</item>
+        <item>5 am</item>
+        <item>6 am</item>
+        <item>7 am</item>
+        <item>8 am</item>
+        <item>9 am</item>
+        <item>10 am</item>
+        <item>11 am</item>
+        <item>12 pm</item>
+    </string-array>
+
+    <string name="title_activity_createpost">Createpost</string>
+
+    <string-array name="month">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+
+    <string-array name="day">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+        <item>32</item>
+    </string-array>
+
+    <string-array name="year">
+        <item>2015</item>
+        <item>2016</item>
+        <item>2017</item>
+    </string-array>
+    <string name="title_activity_group_detail_view">GroupDetailView</string>
+    <string name="backbutton"><![CDATA[<]]></string>
+    <string name="title_activity_reserve_table">ReserveTable</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_group_add_post">GroupAddPost</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
 </resources>

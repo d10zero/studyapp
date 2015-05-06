@@ -1,0 +1,189 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="com.samchristensen.studyapp.Create"
+    android:background="@drawable/blueborder">
+
+<RelativeLayout android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="#2875a7"
+        android:text="Create a Study Post"
+        android:textSize="28dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/createpost_textView"
+        android:layout_margin="15dp"/>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/whitebackground"
+        android:id="@+id/createpost_edittextbox"
+        android:layout_below="@id/createpost_textView"
+        android:orientation="vertical"
+        android:paddingTop="40dp"
+        android:paddingBottom="40dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_margin="10dp">
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:hint="Name of Class"
+            android:textSize="16dp"
+            android:id="@+id/createpost_nameofclass"
+            android:layout_margin="5dp" />
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="16dp"
+            android:hint="Name of Instuctor"
+            android:id="@+id/createpost_instructor"
+            android:layout_margin="5dp"
+            android:layout_below="@id/createpost_nameofclass"/>
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="16dp"
+            android:hint="Location to Study"
+            android:id="@+id/createpost_location"
+            android:layout_margin="5dp"
+            android:layout_below="@id/createpost_instructor"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DATE"
+        android:textSize="16dp"
+        android:textColor="#2875a7"
+        android:layout_below="@id/createpost_location"
+        android:id="@+id/createpost_datetextview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/createpost_datetextview"
+        android:weightSum="3"
+        android:layout_marginTop="5dp"
+        android:id="@+id/createpost_dateselection"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true">
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/createpost_month"
+            android:layout_weight="1"
+            android:entries="@array/month"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/createpost_day"
+            android:layout_weight="1.1"
+            android:entries="@array/day"/>
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/createpost_year"
+            android:layout_weight="1.1"
+            android:entries="@array/year"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TIME"
+        android:textSize="16dp"
+        android:textColor="#2875a7"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/createpost_dateselection"
+        android:id="@+id/createpost_timetextview"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/createpost_timetextview"
+        android:weightSum="3"
+        android:layout_marginTop="5dp"
+        android:id="@+id/createpost_timeSelection"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true">
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/createpost_typeOfTime"
+            android:layout_weight="1"
+            android:entries="@array/betweenat"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/createpost_firstTime"
+            android:layout_weight="1.1"
+            android:entries="@array/times"
+            android:layout_marginRight="-10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/createpost_and"
+            android:text="and"
+            android:textSize="12dp"
+            android:layout_margin="10dp"
+            android:layout_gravity="center_vertical" />
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/createpost_secondTime"
+            android:layout_weight="1.1"
+            android:entries="@array/times2"/>
+    </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/createpost_edittextbox">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:id="@+id/createpost_cancel"
+            android:layout_margin="10dp"
+            android:text="CANCEL"
+            android:textSize="24dp"
+            android:textColor="#767676"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:id="@+id/createpost_create"
+            android:text="CREATE"
+            android:textSize="24dp"
+            android:textColor="#2875a7"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+
+</RelativeLayout>
+</ScrollView>

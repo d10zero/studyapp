@@ -33,8 +33,8 @@ public class PostDetailPopup extends Dialog {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.post_detailview);
 
-        final TextView createdby, classname, instructorname, location, time, creatorEmail;
-        final IconTextView exit;
+        //Hook all elements up to the coressponding UI elements
+        final TextView createdby, classname, instructorname, location, time, creatorEmail, exit;
 
         createdby = (TextView) findViewById(R.id.postdetail_createdby);
         creatorEmail = (TextView) findViewById(R.id.postdetail_creatoremail);
@@ -43,22 +43,26 @@ public class PostDetailPopup extends Dialog {
         location = (TextView) findViewById(R.id.postdetail_location);
         time = (TextView) findViewById(R.id.postdetail_time);
 
-        exit = (IconTextView) findViewById(R.id.postdetail_exit);
+        exit = (TextView) findViewById(R.id.postdetail_close);
 
+
+        //Set text in TextViews
         createdby.setText("Created by : " + post.getCreatorUsername());
         creatorEmail.setText("Email : " + post.getCreatorEmail());
         classname.setText(post.getClassName());
         instructorname.setText("Instructor : " + post.getInstructor());
-        location.setText("Studying at " + post.getLocation());
-        if(post.getUndefined())
-            time.setText("Until the end of the night");
-        else if(post.getTime() <= 12)
+        location.setText("At: " + post.getLocation());
+
+        //if(post.getUndefined())
+            //time.setText("Until the end of the night");
+        if(post.getTime() <= 12)
             time.setText("Until " + post.getTime() + "am");
         else {
-            String thetime = (post.getTime() - 12) + "";
+            int thetime = (int) post.getTime() - 12;
             time.setText("Until " + thetime + "pm");
         }
 
+        //Set exit on click listener
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

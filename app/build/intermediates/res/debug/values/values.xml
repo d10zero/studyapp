@@ -1,5 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- From: file:/Users/Sam/Documents/androidstudio/StudyApp/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string-array name="betweenat">
+        <item>Between</item>
+        <item>Until</item>
+    </string-array>
+    <string-array name="day">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+        <item>32</item>
+    </string-array>
+    <string-array name="month">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+    <string-array name="times">
+        <item>8 am</item>
+        <item>9 am</item>
+        <item>10 am</item>
+        <item>11 am</item>
+        <item>12 pm</item>
+        <item>1 pm</item>
+        <item>2 pm</item>
+        <item>3 pm</item>
+        <item>4 pm</item>
+        <item>5 pm</item>
+        <item>6 pm</item>
+        <item>7 pm</item>
+        <item>8 pm</item>
+        <item>9 pm</item>
+        <item>10 pm</item>
+        <item>11 pm</item>
+        <item>12 pm</item>
+        <item>1 am</item>
+        <item>2 am</item>
+        <item>3 am</item>
+        <item>4 am</item>
+        <item>5 am</item>
+        <item>6 am</item>
+        <item>7 am</item>
+    </string-array>
+    <string-array name="times2">
+        <item>1 pm</item>
+        <item>2 pm</item>
+        <item>3 pm</item>
+        <item>4 pm</item>
+        <item>5 pm</item>
+        <item>6 pm</item>
+        <item>7 pm</item>
+        <item>8 pm</item>
+        <item>9 pm</item>
+        <item>10 pm</item>
+        <item>11 pm</item>
+        <item>12 pm</item>
+        <item>1 am</item>
+        <item>2 am</item>
+        <item>3 am</item>
+        <item>4 am</item>
+        <item>5 am</item>
+        <item>6 am</item>
+        <item>7 am</item>
+        <item>8 am</item>
+        <item>9 am</item>
+        <item>10 am</item>
+        <item>11 am</item>
+        <item>12 pm</item>
+    </string-array>
+    <string-array name="year">
+        <item>2015</item>
+        <item>2016</item>
+        <item>2017</item>
+    </string-array>
     <!-- From: file:/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/res/values/values.xml -->
     <eat-comment/>
     <attr format="reference" name="drawerArrowStyle"/>
@@ -180,6 +291,7 @@
     <string name="action_settings">Settings</string>
     <string name="app_name">StudyApp</string>
     <string name="availableRooms"><i><b>Available Rooms</b></i></string>
+    <string name="backbutton"><![CDATA[<]]></string>
     <string name="buildingName">BUILDING NAME</string>
     <string name="classNumber">CLASS NUMBER</string>
     <string name="createAccount">CREATE AN ACCOUNT</string>
@@ -192,6 +304,7 @@
     <string name="emailEnd">\@wisc.edu</string>
     <string name="emailError">You need a valid WiscMail Address!</string>
     <string name="firstNameError">You need to give yourself a First Name!</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hello_world">Hello world!</string>
     <string name="lastNameError">You need to give yourself a Last Name!</string>
     <string name="libraryPopulation"><i><b>Library Population</b></i></string>
@@ -213,9 +326,16 @@
     <string name="potentialGroups"><i><b>Existing Groups</b></i></string>
     <string name="searchForGroups"><i><b>Search For Groups</b></i></string>
     <string name="searchForRooms"><i><b>Search For Rooms</b></i></string>
+    <string name="title_activity_createpost">Createpost</string>
     <string name="title_activity_find_groups">FindGroupsActivity</string>
     <string name="title_activity_find_tables">FindTablesActivity</string>
+    <string name="title_activity_group">GroupActivity</string>
+    <string name="title_activity_group_add_post">GroupAddPost</string>
+    <string name="title_activity_group_detail_view">GroupDetailView</string>
     <string name="title_activity_library_population">libraryPopulation</string>
+    <string name="title_activity_reserve_table">ReserveTable</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="until"><b>Until</b> </string>
     <!-- From: file:/Users/Sam/Documents/androidstudio/StudyApp/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">

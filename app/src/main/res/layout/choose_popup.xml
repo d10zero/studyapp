@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    android:background="@drawable/whiteborder">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/choose_textview"
+        android:text="Which do you want to create?"
+        android:textAlignment="center"
+        android:textColor="#2875A8"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="#B3B3B3"
+        android:layout_margin="10dp"
+        android:id="@+id/choose_hori"
+        android:layout_below="@+id/choose_textview"/>
+
+    <View
+        android:layout_width="2dp"
+        android:layout_height="30dp"
+        android:background="#B3B3B3"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/choose_hori"
+        android:id="@+id/choose_verti"
+        android:layout_marginRight="10dp"/>
+
+    <TextView
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:text="New Post"
+        android:textSize="16dp"
+        android:layout_alignParentLeft="true"
+        android:gravity="center"
+        android:layout_below="@+id/choose_hori"
+        android:layout_margin="5dp"
+        android:id="@+id/choose_post" />
+
+    <TextView
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:text="New Group"
+        android:textSize="16dp"
+        android:id="@+id/choose_group"
+        android:gravity="center"
+        android:layout_below="@+id/choose_hori"
+        android:layout_margin="5dp"
+        android:layout_alignParentRight="true" />
+
+</RelativeLayout>

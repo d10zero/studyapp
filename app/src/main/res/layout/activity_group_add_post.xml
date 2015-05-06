@@ -1,0 +1,63 @@
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/blueborder"
+    android:padding="30dp"
+    android:weightSum="10">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="Create Post"
+        android:id="@+id/accountinfo_textView"
+        android:textStyle="bold"
+        android:textSize="24dp"
+        android:textColor="#2875a7"
+        android:layout_margin="10dp"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:text="User First Name"
+        android:textColor="#767676"
+        android:padding="10dp"
+        android:textSize="16dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/groupcreatepost_content"
+        android:layout_margin="10dp"
+        android:layout_below="@id/accountinfo_textView"
+        android:layout_weight="7"
+        android:minHeight="100dp"
+        android:minWidth="50dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:gravity="bottom">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="CANCEL"
+            android:textSize="18dp"
+            android:id="@+id/groupcreatepost_cancel"
+            android:layout_margin="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_margin="5dp"
+            android:text="CREATE"
+            android:textSize="18dp"
+            android:id="@+id/groupcreatepost_create"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

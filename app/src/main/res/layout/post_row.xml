@@ -8,15 +8,16 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Class Name and Number"
+        android:text="Class Name"
         android:textSize="20dp"
+        android:textColor="#2875a7"
         android:id="@+id/post_class"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Instructor"
-        android:textSize="20dp"
+        android:textSize="14dp"
         android:id="@+id/post_instructor"
         android:layout_alignParentRight="true"/>
 
@@ -24,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Location"
-        android:textSize="20dp"
+        android:textSize="14dp"
         android:id="@+id/post_location"
         android:layout_margin="10dp"
         android:layout_below="@+id/post_class"/>
@@ -33,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Until"
-        android:textSize="20dp"
+        android:textSize="14dp"
         android:id="@+id/post_time"
         android:layout_margin="10dp"
         android:layout_below="@+id/post_instructor"

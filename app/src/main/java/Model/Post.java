@@ -1,34 +1,45 @@
 package Model;
 
+import com.samchristensen.studyapp.HomePageActivity;
+
+import java.io.Serializable;
+import java.util.Date;
+
 /**
  * Created by Sam on 4/17/15.
  */
-public class Post {
+public class Post implements Serializable{
 
+    //Instance variables for each Post that is created
     private String className, instructor,location;
     private User creator;
-    private int time;
-    private boolean undefined;
+    private double time;
+    private String date;
 
-    public Post (String className, String instructor, String location, int time, boolean undefined, User creator){
+
+    //Post constructor
+    public Post (String className, String instructor, String location,
+                 double time, String date, String creator){
         this.className = className;
         this.instructor = instructor;
         this.location = location;
         this.time = time;
-        this.undefined = undefined;
-        this.creator = creator;
+        //this.creator = creator;
+        this.date = date;
     }
 
+
+    //All of the setting and getting methods for different instance variables
     public String getCreatorName() {
         return creator.getFirstName() + " " + creator.getLastName();
     }
 
     public String getCreatorUsername(){
-        return creator.getUserName();
+        return "sjchristens3";
     }
 
     public String getCreatorEmail(){
-        return creator.getEmail();
+        return "sjchristens3@wisc.edu";
     }
 
     public String getClassName() {
@@ -55,7 +66,7 @@ public class Post {
         this.location = location;
     }
 
-    public int getTime() {
+    public double getTime() {
         return time;
     }
 
@@ -63,8 +74,7 @@ public class Post {
         this.time = time;
     }
 
-    public boolean getUndefined(){
-        return undefined;
+    public String getDate() {
+        return date;
     }
-
 }

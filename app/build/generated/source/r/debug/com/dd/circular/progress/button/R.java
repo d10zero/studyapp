@@ -24,35 +24,35 @@ public final class R {
 		public static final int cpb_textProgress = 0x7f010025;
 	}
 	public static final class color {
-		public static final int cpb_blue = 0x7f070012;
-		public static final int cpb_blue_dark = 0x7f070013;
-		public static final int cpb_complete_state_selector = 0x7f070042;
-		public static final int cpb_error_state_selector = 0x7f070043;
-		public static final int cpb_green = 0x7f070014;
-		public static final int cpb_green_dark = 0x7f070015;
-		public static final int cpb_grey = 0x7f070016;
-		public static final int cpb_idle_state_selector = 0x7f070044;
-		public static final int cpb_red = 0x7f070017;
-		public static final int cpb_red_dark = 0x7f070018;
-		public static final int cpb_white = 0x7f070019;
+		public static final int cpb_blue = 0x7f080012;
+		public static final int cpb_blue_dark = 0x7f080013;
+		public static final int cpb_complete_state_selector = 0x7f080042;
+		public static final int cpb_error_state_selector = 0x7f080043;
+		public static final int cpb_green = 0x7f080014;
+		public static final int cpb_green_dark = 0x7f080015;
+		public static final int cpb_grey = 0x7f080016;
+		public static final int cpb_idle_state_selector = 0x7f080044;
+		public static final int cpb_red = 0x7f080017;
+		public static final int cpb_red_dark = 0x7f080018;
+		public static final int cpb_white = 0x7f080019;
 	}
 	public static final class dimen {
-		public static final int cpb_stroke_width = 0x7f080027;
+		public static final int cpb_stroke_width = 0x7f090027;
 	}
 	public static final class drawable {
 		public static final int cpb_background = 0x7f020039;
 	}
 	public static final class string {
-		public static final int define_circularprogressbutton = 0x7f0b0016;
-		public static final int library_circularprogressbutton_author = 0x7f0b001e;
-		public static final int library_circularprogressbutton_authorWebsite = 0x7f0b001f;
-		public static final int library_circularprogressbutton_isOpenSource = 0x7f0b0020;
-		public static final int library_circularprogressbutton_libraryDescription = 0x7f0b0021;
-		public static final int library_circularprogressbutton_libraryName = 0x7f0b0022;
-		public static final int library_circularprogressbutton_libraryVersion = 0x7f0b0023;
-		public static final int library_circularprogressbutton_libraryWebsite = 0x7f0b0024;
-		public static final int library_circularprogressbutton_licenseId = 0x7f0b0025;
-		public static final int library_circularprogressbutton_repositoryLink = 0x7f0b0026;
+		public static final int define_circularprogressbutton = 0x7f0c0017;
+		public static final int library_circularprogressbutton_author = 0x7f0c0020;
+		public static final int library_circularprogressbutton_authorWebsite = 0x7f0c0021;
+		public static final int library_circularprogressbutton_isOpenSource = 0x7f0c0022;
+		public static final int library_circularprogressbutton_libraryDescription = 0x7f0c0023;
+		public static final int library_circularprogressbutton_libraryName = 0x7f0c0024;
+		public static final int library_circularprogressbutton_libraryVersion = 0x7f0c0025;
+		public static final int library_circularprogressbutton_libraryWebsite = 0x7f0c0026;
+		public static final int library_circularprogressbutton_licenseId = 0x7f0c0027;
+		public static final int library_circularprogressbutton_repositoryLink = 0x7f0c0028;
 	}
 	public static final class styleable {
 		public static final int[] CircularProgressButton = { 0x7f01001f, 0x7f010020, 0x7f010021, 0x7f010022, 0x7f010023, 0x7f010024, 0x7f010025, 0x7f010026, 0x7f010027, 0x7f010028, 0x7f010029, 0x7f01002a, 0x7f01002b, 0x7f01002c };

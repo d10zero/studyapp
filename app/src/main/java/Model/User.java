@@ -1,18 +1,21 @@
 package Model;
 
+import com.orm.SugarRecord;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by Sam on 2/20/15.
  */
-public class User implements Serializable {
-    private String firstName, lastName, userName;
-    private String email, password;
-    private ArrayList<Group> groups;
-    private ArrayList<Post> posts;
+public class User extends SugarRecord<User> implements Serializable  {
+
+    //Instance variables for each User created
+    private String firstName, lastName, userName, email, password;
+    private ArrayList<Group> groups = new ArrayList<Group>();
     private School school;
 
+    //User constructor
     public User(String firstName, String lastName, String userName, String email, String password,
                    School school){
         this.firstName = firstName;
@@ -24,16 +27,10 @@ public class User implements Serializable {
         initialize();
     }
 
+
+    //Settor and Gettors of each of the instance variables for the user
     public void addGroup(Group newGroup){
         groups.add(newGroup);
-    }
-
-    public ArrayList<Post> getPosts() {
-        return posts;
-    }
-
-    public void addPost(Post post){
-        posts.add(post);
     }
 
     public ArrayList<Group> getGroups() {

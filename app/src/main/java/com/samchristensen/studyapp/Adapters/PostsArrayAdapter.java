@@ -14,11 +14,11 @@ import Model.Post;
 /**
  * Created by Sam on 3/9/15.
  */
-public class CustomArrayAdapter extends BaseAdapter {
+public class PostsArrayAdapter extends BaseAdapter {
 
     private ArrayList<Post> posts = new ArrayList<Post>();
 
-    public CustomArrayAdapter(ArrayList<Post> posts){
+    public PostsArrayAdapter(ArrayList<Post> posts){
         this.posts = posts;
     }
 
@@ -56,18 +56,8 @@ public class CustomArrayAdapter extends BaseAdapter {
         location.setText(post.getLocation());
         instructor.setText(post.getInstructor());
 
-        if(post.getUndefined()){
-            time.setText("All day/night");
-        }
-        else {
-            int timeOf = post.getTime();
-            if (timeOf > 12) {
-                timeOf = timeOf - 12;
-                time.setText(timeOf + "pm");
-            } else {
-                time.setText(timeOf + "am");
-            }
-        }
+        time.setText("All day/night");
+
 
         return convertView;
     }

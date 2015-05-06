@@ -21,8 +21,6 @@ import Model.User;
 public class AccountInfoPopup extends Dialog {
 
     private final User user;
-    private EditText firstname, lastname, wiscmail, password;
-    private Button save;
 
     public AccountInfoPopup(Context context, User user) {
         super(context);
@@ -35,12 +33,18 @@ public class AccountInfoPopup extends Dialog {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.accountinfo_popup);
 
+        //UI Elements on each Account Info Popup
+        final EditText firstname, lastname, wiscmail, password;
+        final TextView save;
+
+        //Connect the elements with the corresponding UI Element
         firstname = (EditText) findViewById(R.id.accountinfo_firstname);
         lastname = (EditText) findViewById(R.id.accountinfo_lastname);
         wiscmail = (EditText) findViewById(R.id.accountinfo_wiscmail);
         password = (EditText) findViewById(R.id.accountinfo_password);
-        save = (Button) findViewById(R.id.accountinfo_save);
+        save = (TextView) findViewById(R.id.accountinfo_save);
 
+        //Set content for each of the elements
         firstname.setText(user.getFirstName());
         lastname.setText(user.getLastName());
         wiscmail.setText(user.getEmail());

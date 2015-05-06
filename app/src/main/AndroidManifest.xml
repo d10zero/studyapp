@@ -1,20 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.samchristensen.studyapp" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/applogoicon"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon" >
+
+        <!-- Sugar specific setup (the ORM library) -->
+        <meta-data
+            android:name="DATABASE"
+            android:value="yoga.db" />
+        <meta-data
+            android:name="VERSION"
+            android:value="2" />
+        <meta-data
+            android:name="QUERY_LOG"
+            android:value="false" />
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="com.example.yoga.Model" />
+
         <activity
             android:name=".CreateAccountActivity"
             android:label="@string/app_name"
             android:windowSoftInputMode="stateHidden" >
-        </activity>
-        <activity
-            android:name=".HomePageActivity"
-            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,8 +37,34 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".GroupActivity"
-            android:label="@string/title_activity_group" >
+            android:name=".HomePageActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name=".Create"
+            android:label="@string/title_activity_createpost"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name=".GroupDetailView"
+            android:label="@string/title_activity_group_detail_view"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name=".ReserveTable"
+            android:label="@string/title_activity_reserve_table"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name=".GroupAddPost"
+            android:label="@string/title_activity_group_add_post"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name=".SplashScreen"
+            android:label="@string/title_activity_splash_screen"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
     </application>
 

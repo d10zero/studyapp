@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="#2875a7"
+        android:text="Create a New Group"
+        android:textSize="28dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/createpost_textView"
+        android:layout_margin="15dp"/>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/whitebackground"
+        android:id="@+id/createpost_edittextbox"
+        android:layout_below="@id/createpost_textView"
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_margin="10dp">
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:hint="Name of Class"
+            android:textSize="16dp"
+            android:id="@+id/creategroup_nameofclass"
+            android:layout_margin="5dp" />
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="16dp"
+            android:hint="Name of Instuctor"
+            android:id="@+id/creategroup_instructor"
+            android:layout_margin="5dp"
+            android:layout_below="@id/creategroup_nameofclass"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/createpost_edittextbox">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:id="@+id/creategroup_cancel"
+            android:layout_margin="10dp"
+            android:text="CANCEL"
+            android:textSize="24dp"
+            android:textColor="#767676"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:id="@+id/creategroup_create"
+            android:text="CREATE"
+            android:textSize="24dp"
+            android:textColor="#2875a7"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

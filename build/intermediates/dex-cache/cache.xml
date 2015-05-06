@@ -9,13 +9,6 @@
         <dex dex="/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/pre-dexed/debug/classes-302fc5833a0924594da7eb050a9632e454ae9442.jar" />
     </item>
     <item
-        jar="/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/pre-dexed/debug/classes-46b2c0ceff55fc01e03fda98563d060d065316a1.jar" />
-    </item>
-    <item
         jar="/Users/Sam/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -23,11 +16,60 @@
         <dex dex="/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/pre-dexed/debug/library-2.4.0-c9f109fcfb7a114234263c13a9f3b59146ac88e4.jar" />
     </item>
     <item
+        jar="/Users/Sam/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.2.4/3b7f38df6de5dd8b500e602ae8c2dd5ee446f883/httpcore-4.2.4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="3b7f38df6de5dd8b500e602ae8c2dd5ee446f883">
+        <dex dex="/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/pre-dexed/debug/httpcore-4.2.4-bf17d7687ef279c3d3ad2a4a6012d4a779bdbb6b.jar" />
+    </item>
+    <item
+        jar="/Users/Sam/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/pre-dexed/debug/gson-2.3.1-7cfef5a59f407ee415fc8f417f2e99611185a76e.jar" />
+    </item>
+    <item
+        jar="/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/pre-dexed/debug/classes-c773a7ea77888ee92f48dd3798749dc30d0274ad.jar" />
+    </item>
+    <item
+        jar="/Users/Sam/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpmime/4.2.5/412b9914d0adec6d5716df1ada8acbc4f6f2dd37/httpmime-4.2.5.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="412b9914d0adec6d5716df1ada8acbc4f6f2dd37">
+        <dex dex="/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/pre-dexed/debug/httpmime-4.2.5-8f719c4b2cd3ebb1542f23a9eb27a42f0c05df6f.jar" />
+    </item>
+    <item
+        jar="/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/exploded-aar/com.daimajia.easing/library/1.0.1/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d7e947f993bf32a00fcb3078cdda8bb11c930afb">
+        <dex dex="/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/pre-dexed/debug/classes-86ef110ad5ade7b2214720ed333cc4c673a5f394.jar" />
+    </item>
+    <item
+        jar="/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/pre-dexed/debug/classes-46b2c0ceff55fc01e03fda98563d060d065316a1.jar" />
+    </item>
+    <item
         jar="/Users/Sam/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
         <dex dex="/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-ee2749311bdd02c64585b5f9f0a2c3d9ec89df3b.jar" />
+    </item>
+    <item
+        jar="/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/exploded-aar/net.callumtaylor/asynchttpclient/1.5/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2cd6365b9e6a4298334e6b6107b32696dfccb2db">
+        <dex dex="/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/pre-dexed/debug/classes-e88ed2e3027e742c6fada132fe63543587d673d4.jar" />
     </item>
     <item
         jar="/Users/Sam/.gradle/caches/modules-2/files-2.1/com.joanzapata.android/android-iconify/1.0.9/27817b0ae26d4fa788711f1f75aaa45d76901722/android-iconify-1.0.9.jar"
@@ -44,13 +86,6 @@
         <dex dex="/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/pre-dexed/debug/classes-4402cc140a90107c092f90fadb9af65f3d6b599c.jar" />
     </item>
     <item
-        jar="/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/pre-dexed/debug/classes-c773a7ea77888ee92f48dd3798749dc30d0274ad.jar" />
-    </item>
-    <item
         jar="/Users/Sam/Documents/androidstudio/StudyApp/app/libs/Parse-1.8.2.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -58,11 +93,11 @@
         <dex dex="/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/pre-dexed/debug/Parse-1.8.2-47a4937adbe20708a9343e419932e5f49e335a4c.jar" />
     </item>
     <item
-        jar="/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/exploded-aar/com.daimajia.easing/library/1.0.1/classes.jar"
+        jar="/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/exploded-aar/com.github.satyan/sugar/1.3/classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="d7e947f993bf32a00fcb3078cdda8bb11c930afb">
-        <dex dex="/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/pre-dexed/debug/classes-86ef110ad5ade7b2214720ed333cc4c673a5f394.jar" />
+        sha1="07e07903922250dabf50c7d131d6fa069a050305">
+        <dex dex="/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/pre-dexed/debug/classes-3f526581e906075f5fbadb1cb7077f07f65e05b3.jar" />
     </item>
     <item
         jar="/Users/Sam/Documents/androidstudio/StudyApp/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"

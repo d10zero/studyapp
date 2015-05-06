@@ -1,14 +1,12 @@
 package com.samchristensen.studyapp.Adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.samchristensen.studyapp.GroupActivity;
 import com.samchristensen.studyapp.R;
 
 import java.util.ArrayList;
@@ -23,7 +21,7 @@ public class GroupsArrayAdapter extends BaseAdapter {
     private ArrayList<Group> groups = new ArrayList<Group>();
     private Context context;
 
-    public GroupsArrayAdapter(ArrayList<Group> groups, Context context){
+    public GroupsArrayAdapter(ArrayList<Group> groups){
         this.groups = groups;
         this.context = context;
     }
@@ -48,15 +46,17 @@ public class GroupsArrayAdapter extends BaseAdapter {
         if(convertView==null)
         {
             LayoutInflater inflater = (LayoutInflater) LayoutInflater.from(parent.getContext());
-            convertView = inflater.inflate(R.layout.mygroups_row, parent,false);
+            convertView = inflater.inflate(R.layout.groups_row, parent,false);
         }
 
-        TextView name, instructor;
+        TextView name, instructor, numberofmembers;
         name = (TextView) convertView.findViewById(R.id.mygroups_groupname);
         instructor = (TextView) convertView.findViewById(R.id.mygroups_instructorname);
+        numberofmembers = (TextView) convertView.findViewById(R.id.mygroups_nummembers);
 
-        name.setText(groups.get(position).getClassName());
-        instructor.setText(groups.get(position).getInstructor());
+        name.setText( groups.get(position).getClassName());
+        instructor.setText( groups.get(position).getInstructor());
+        numberofmembers.setText("Members : " +  groups.get(position).getMembers().size());
 
         return convertView;
     }

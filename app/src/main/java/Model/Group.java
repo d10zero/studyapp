@@ -7,15 +7,20 @@ import java.util.ArrayList;
  * Created by Sam on 2/20/15.
  */
 public class Group implements Serializable {
-    private String className, instructor;
-    private ArrayList<User> members;
-    private ArrayList<String> chatboard;
 
+    //Instance variables for each Group created
+    private int groupId;
+    private String className, instructor;
+    private ArrayList<String> memberEmails = new ArrayList<String>();
+    private ArrayList<Post> chatboard = new ArrayList<Post>();
+
+    //Group constructor
     public Group(String className, String instructor){
         this.className = className;
         this.instructor = instructor;
     }
 
+    //Settors and Getteors for each of the variables in a group
     public String getInstructor() {
         return instructor;
     }
@@ -24,12 +29,20 @@ public class Group implements Serializable {
         return className;
     }
 
-    public ArrayList<String> getChatboard() {
+    public ArrayList<Post> getChatboard() {
         return chatboard;
     }
 
-    public ArrayList<User> getMembers() {
-        return members;
+    public void addPost(Post post){
+        chatboard.add(post);
+    }
+
+    public ArrayList<String> getMembers() {
+        return memberEmails;
+    }
+
+    public void addMembers(String membername){
+        memberEmails.add(membername);
     }
 
     public void setInstructor(String instructor) {
@@ -38,5 +51,21 @@ public class Group implements Serializable {
 
     public void setClassName(String className) {
         this.className = className;
+    }
+
+    public int getGroupId() {
+        return groupId;
+    }
+
+    public void addMembersGroup(ArrayList<String> members){
+        this.memberEmails = members;
+    }
+
+    public void addChatGroup(ArrayList<String> chat){
+        //this.chatboard = chat;
+    }
+
+    public void setGroupId(int groupId) {
+        this.groupId = groupId;
     }
 }

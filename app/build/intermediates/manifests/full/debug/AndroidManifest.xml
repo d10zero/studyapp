@@ -8,24 +8,67 @@
         android:minSdkVersion="17"
         android:targetSdkVersion="21" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/applogoicon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
+        <!-- Sugar specific setup (the ORM library) -->
+        <meta-data
+            android:name="DATABASE"
+            android:value="yoga.db" />
+        <meta-data
+            android:name="VERSION"
+            android:value="2" />
+        <meta-data
+            android:name="QUERY_LOG"
+            android:value="false" />
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="com.example.yoga.Model" />
+
         <activity
             android:name="com.samchristensen.studyapp.CreateAccountActivity"
             android:label="@string/app_name"
             android:windowSoftInputMode="stateHidden" >
-        </activity>
-        <activity
-            android:name="com.samchristensen.studyapp.HomePageActivity"
-            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.samchristensen.studyapp.HomePageActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="com.samchristensen.studyapp.Create"
+            android:label="@string/title_activity_createpost"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="com.samchristensen.studyapp.GroupDetailView"
+            android:label="@string/title_activity_group_detail_view"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="com.samchristensen.studyapp.ReserveTable"
+            android:label="@string/title_activity_reserve_table"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="com.samchristensen.studyapp.GroupAddPost"
+            android:label="@string/title_activity_group_add_post"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="com.samchristensen.studyapp.SplashScreen"
+            android:label="@string/title_activity_splash_screen"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
     </application>
 
