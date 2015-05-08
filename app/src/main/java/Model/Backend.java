@@ -34,8 +34,8 @@ public class Backend {
     //Callback interface for calling objects on Backend objects to
     //receive responses asynchronously
     public interface BackendCallback {
-        public void onRequestCompleted(Object result);
-        public void onRequestFailed(String message);
+        void onRequestCompleted(Object result);
+        void onRequestFailed(String message);
     }
 
     public static void login(final BackendCallback callback, final String username, final String password){
