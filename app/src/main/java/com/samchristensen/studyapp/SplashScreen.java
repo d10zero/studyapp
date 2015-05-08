@@ -33,7 +33,7 @@ public class SplashScreen extends Activity {
         }
 
         else{
-            Backend.getUser(new Backend.BackendCallback() {
+            Backend.login(new Backend.BackendCallback() {
                 @Override
                 public void onRequestCompleted(Object result) {
                     Log.d(TAG, "Successfully retrieved user");
@@ -48,7 +48,7 @@ public class SplashScreen extends Activity {
                     Log.d(TAG, "Failed to retrieve user");
                     Toast.makeText(context, "Error With Server", Toast.LENGTH_SHORT).show();
                 }
-            }, username);
+            }, username, password);
         }
 
     }

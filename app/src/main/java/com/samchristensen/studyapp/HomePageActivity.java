@@ -54,62 +54,44 @@ public class HomePageActivity extends Activity {
         setContentView(R.layout.homepage);
 
         Intent intent = getIntent();
-        boolean fromNewPost = intent.getBooleanExtra("InsideApp", false);
-        if(fromNewPost){
+
+        boolean InsideApp = intent.getBooleanExtra("InsideApp", false);
+        if(InsideApp){
             if(intent.getSerializableExtra("User") != null)
                 user = (User) intent.getSerializableExtra("User");
             if(intent.getSerializableExtra("School") != null)
                 school = (School) intent.getSerializableExtra("School");
-            groups = school.getGroups();
-            posts = school.getPosts();
         }
-        else{
-            /*//Create dummy content for display purposes
-            school = new School();
-            user = new User("Sam", "Christensen", "sjchristens3", "sjchristens3@wisc.edu", "testpassword", school);
-            user.addGroup(new Group("CS 240", "Mr. Banerjee"));
-            user.addGroup(new Group("CS 555", "Mrs. Evanston"));
-            user.addGroup(new Group("ENG 232", "Mr. Andersen"));
+        Log.d(TAG, "Attempting to load in groups");
+        Backend.getGroups(new Backend.BackendCallback() {
+            @Override
+            public void onRequestCompleted(Object result) {
+                Log.d(TAG, "Server loaded groups");
+                school.addGroupGroup((ArrayList<Group>) result);
+                groups = school.getGroups();
+            }
 
-            for(int i =0; i < user.getGroups().size();i++){
-                user.getGroups().get(i).addMembers("Josh");
-                user.getGroups().get(i).addMembers("Jake");
-                user.getGroups().get(i).addMembers("Eric");
-                user.getGroups().get(i).addMembers("Samuel");
-                user.getGroups().get(i).addMembers("Mark");
-                user.getGroups().get(i).addMembers("Juan");
-                user.getGroups().get(i).addMembers("Jesse");
-                user.getGroups().get(i).addMembers("Walter");
-            }*/
-            Log.d(TAG, "we are here");
-            Backend.getGroups(new Backend.BackendCallback() {
-                @Override
-                public void onRequestCompleted(Object result) {
-                    Log.d(TAG, "Server loaded groups");
-                    school.addGroupGroup((ArrayList<Group>) result);
-                    groups = school.getGroups();
-                }
+            @Override
+            public void onRequestFailed(String message) {
+                Log.d(TAG, "Server could not load groups");
+            }
+        });
 
-                @Override
-                public void onRequestFailed(String message) {
-                    Log.d(TAG, "Server could not load groups");
-                }
-            });
-            Log.d(TAG, "Inbetween loading groups and posts");
-            Backend.getPosts(new Backend.BackendCallback() {
-                @Override
-                public void onRequestCompleted(Object result) {
-                    Log.d(TAG, "Server loaded posts");
-                    school.addPostsGroup((ArrayList<Post>) result);
-                    posts = school.getPosts();
-                }
+        Log.d(TAG, "Attempting to load in posts");
+        Backend.getPosts(new Backend.BackendCallback() {
+            @Override
+            public void onRequestCompleted(Object result) {
+                Log.d(TAG, "Server loaded posts");
+                school.addPostsGroup((ArrayList<Post>) result);
+                posts = school.getPosts();
+            }
 
-                @Override
-                public void onRequestFailed(String message) {
-                    Log.d(TAG, "Server could not load posts");
-                }
-            });
-        }
+            @Override
+            public void onRequestFailed(String message) {
+                Log.d(TAG, "Server could not load posts");
+            }
+        });
+
 
 
         //Hookup ImageView to corresponding UI elements
@@ -159,10 +141,10 @@ public class HomePageActivity extends Activity {
 
         //Populate the ListView with temporary postContent
         final PostsArrayAdapter postsAdapter = new PostsArrayAdapter(this.posts);
-        postslv.setAdapter(postsAdapter);
+       // postslv.setAdapter(postsAdapter);
 
         final GroupsArrayAdapter groupsadapter = new GroupsArrayAdapter(this.groups);
-        groupslv.setAdapter(groupsadapter);
+       // groupslv.setAdapter(groupsadapter);
 
 
         //setOnClick Actions for each of the UI elements

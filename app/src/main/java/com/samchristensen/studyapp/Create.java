@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 
+import Model.Backend;
 import Model.Group;
 import Model.InvalidInputException;
 import Model.Post;
@@ -29,7 +30,7 @@ public class Create extends Activity {
     private User user;
     private School school;
     private boolean betweenIsSelected = true;
-
+    private String TAG = "CreateConnection";
     final String[] twentyeightArray = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
                     "13", "14", "15", "16", "17", "18", "19", "21", "22", "23", "24", "25", "26", "28"};
     final String[] thirtyArray = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
@@ -38,6 +39,10 @@ public class Create extends Activity {
     final String[] thirtyOneArray = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
             "13", "14", "15", "16", "17", "18", "19", "21", "22", "23", "24", "25", "26", "28", "29",
             "30", "31"};
+    final double[] numbers1 = {8.00, 9.00, 10.00, 11.00, 12.00, 13.00, 14.00, 15.00, 16.00, 17.00,
+        18.00, 19.00, 20.00, 21.00, 22.00, 23.00, 24.00, 1.00, 2.00, 3.00, 4.00, 5.00, 6.00, 7.00};
+    final double[] numbers2 = {13.00, 14.00, 15.00, 16.00, 17.00, 18.00, 19.00, 20.00, 21.00,
+            22.00, 23.00, 24.00, 1.00, 2.00, 3.00, 4.00, 5.00, 6.00, 7.00, 8.00, 9.00, 10.00, 11.00, 12.00};
 
     Context context = this;
     EditText classname, location, instructor;
@@ -71,16 +76,13 @@ public class Create extends Activity {
         startActivity(intent);
     }
 
-    private void validateInput() throws InvalidInputException{
-        Log.d("thisiswhat", classname.getText().toString());
+    private void validatePostInput() throws InvalidInputException {
         if(classname.getText().toString() == ""){
             throw new InvalidInputException("classname");
         }
-        Log.d("thisiswhat", instructor.getText().toString());
         if(instructor.getText().toString() == ""){
             throw new InvalidInputException("instructor");
         }
-        Log.d("thisiswhat", location.getText().toString());
         if(location.getText().toString() == ""){
             throw new InvalidInputException("location");
         }
@@ -109,13 +111,32 @@ public class Create extends Activity {
             @Override
             public void onClick(View v) {
                 try{
-                    validateInput();
+                    validatePostInput();
                     String date = month.getSelectedItem().toString() + " " + day.getSelectedItem().toString() + ", "
                             + year.getSelectedItem().toString();
-                    Post post = new Post(classname.getText().toString(), instructor.getText().toString(),
-                            location.getText().toString(), 13, date, "");
-                    school.addPosts(post);
-                    switchViews(HomePageActivity.class);
+                    double startTime, endTime;
+                    if(betweenIsSelected){
+                        startTime = numbers1[time1.getSelectedItemPosition()];
+                        endTime = numbers2[time2.getSelectedItemPosition()];
+                    }
+                    else{
+                        startTime = 0.00;
+                        endTime = numbers1[time1.getSelectedItemPosition()];
+                    }
+                    Log.d(TAG, "Trying to create new post");
+                    Backend.createNewPost(new Backend.BackendCallback() {
+                        @Override
+                        public void onRequestCompleted(Object result) {
+                            switchViews(HomePageActivity.class);
+                        }
+
+                        @Override
+                        public void onRequestFailed(String message) {
+                            Log.d(TAG, message);
+                        }
+                    }, new Post(classname.getText().toString(), instructor.getText().toString(),
+                            location.getText().toString(), startTime,
+                            endTime, date, "sjchristens3"/*user.getUserName()*/));
                 }
                 catch(InvalidInputException e){
                     showError(e.getMessage());
@@ -225,10 +246,20 @@ public class Create extends Activity {
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Group group = new Group(classname.getText().toString(), instructorname.getText().toString());
-                user.addGroup(group);
-                school.addGroup(group);
-                switchViews(HomePageActivity.class);
+                Log.d("ConnectionManager", "trying to create group");
+                Backend.createNewGroup(new Backend.BackendCallback() {
+                    @Override
+                    public void onRequestCompleted(Object result) {
+                        switchViews(HomePageActivity.class);
+                    }
+
+                    @Override
+                    public void onRequestFailed(String message) {
+                        Log.d(TAG, message);
+                    }
+                }, new Group(classname.getText().toString(),
+                        instructorname.getText().toString(), user.getUserName()));
+
             }
         });
 

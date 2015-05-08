@@ -89,7 +89,7 @@ public class GroupDetailView extends Activity {
 
         ListView posts = (ListView) findViewById(R.id.groupdetail_listview);
 
-        GroupPostArrayAdapter adapter = new GroupPostArrayAdapter(((Group) intent.getSerializableExtra("Group")), context);
+        GroupPostArrayAdapter adapter = new GroupPostArrayAdapter(group, context);
         posts.setAdapter(adapter);
 
         addpost.setOnClickListener(new View.OnClickListener() {
@@ -97,7 +97,7 @@ public class GroupDetailView extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(context, GroupAddPost.class);
                 intent.putExtra("User", user);
-                intent.putExtra("Group", ((Group) intent.getSerializableExtra("Group")));
+                intent.putExtra("Group", group);
                 startActivity(intent);
             }
         });

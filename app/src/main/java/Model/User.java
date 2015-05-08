@@ -16,15 +16,14 @@ public class User extends SugarRecord<User> implements Serializable  {
     private School school;
 
     //User constructor
-    public User(String firstName, String lastName, String userName, String email, String password,
+    public User(String firstName, String lastName, String email, String password,
                    School school){
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userName = userName;
+        this.userName = email.substring(0, email.length());
         this.email = email;
         this.password = password;
         this.school = school;
-        initialize();
     }
 
 
@@ -69,8 +68,7 @@ public class User extends SugarRecord<User> implements Serializable  {
         password = newPassword;
     }
 
-    private void initialize(){
-
+    public void setSchool(School school) {
+        this.school = school;
     }
-
 }

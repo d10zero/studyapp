@@ -16,15 +16,15 @@ public class GroupAddPost extends Activity {
 
     User user;
     Group group;
-    Intent intentf;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_add_post);
 
-        intentf = getIntent();
-        final User user = (User) intentf.getSerializableExtra("User");
+        intent = getIntent();
+        final User user = (User) intent.getSerializableExtra("User");
 
         //Hook all elements up to the coressponding UI elements
         final EditText content;
@@ -39,8 +39,8 @@ public class GroupAddPost extends Activity {
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Post post = new Post(content.getText().toString(), "", "", 0, "", user.getUserName());
-                ((Group)intentf.getSerializableExtra("Group")).addPost(post);
+                Post post = new Post(content.getText().toString(), "", "", 0, 0, "", user.getUserName());
+                ((Group) intent.getSerializableExtra("Group")).addPost(post);
                 switchViews(GroupDetailView.class);
             }
         });
@@ -56,7 +56,7 @@ public class GroupAddPost extends Activity {
     private void switchViews(Class switchTo){
         Intent intent = new Intent(this, switchTo);
         intent.putExtra("User", user);
-        intent.putExtra("Group", ((Group)intentf.getSerializableExtra("Group")));
+        intent.putExtra("Group", ((Group) this.intent.getSerializableExtra("Group")));
         startActivity(intent);
     }
 }

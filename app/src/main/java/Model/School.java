@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public class School implements Serializable{
 
     //Dummmy data for testing purposes
-    private ArrayList<Post> posts = new ArrayList<Post>();
-    private ArrayList<Group> groups = new ArrayList<Group>();
+    private static ArrayList<Post> posts = new ArrayList<Post>();
+    private static ArrayList<Group> groups = new ArrayList<Group>();
     private String[] classes = {"CS 354", "CS 577", "CS 240", "CS 352", "CS 302", "CS 407", "CS 252",
         "ENG 200", "ENG 404", "ENG 501", "ENG 134", "ENG 234", "BUS 555", "BUS 654","BUS 444"};
 
@@ -26,7 +26,7 @@ public class School implements Serializable{
             "College Library Room ", "Steinbock Library Room ",
             "Memorial Library Room ", "Business Library Room ", "Memorial Library Room ",
             "Business Library Room "};
-    private User user = new User("Sam", "Christensen", "sjchristens3", "sjchristens3@wisc.edu", "testpassword",
+    private User user = new User("Sam", "Christensen", "sjchristens3@wisc.edu", "testpassword",
             this);
 
 
@@ -34,10 +34,10 @@ public class School implements Serializable{
     public School(){
         for(int i = 0; i < 13; i++){
             posts.add(new Post(classes[i], instructors[i], classroom[i] + (100 + i),
-                    13, "", "SJCHRISTENS3"));
+                    13, 12, "", "SJCHRISTENS3"));
         }
         for(int i = 0; i < 13; i++){
-            groups.add(new Group(classes[i], instructors[i]));
+            groups.add(new Group(classes[i], instructors[i], "sjchristens3"));
         }
     }
 
@@ -64,5 +64,4 @@ public class School implements Serializable{
     public void addPosts(Post post) {
          posts.add(post);
     }
-
 }

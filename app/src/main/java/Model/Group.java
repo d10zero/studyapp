@@ -10,14 +10,15 @@ public class Group implements Serializable {
 
     //Instance variables for each Group created
     private int groupId;
-    private String className, instructor;
+    private String className, instructor, creator;
     private ArrayList<String> memberEmails = new ArrayList<String>();
     private ArrayList<Post> chatboard = new ArrayList<Post>();
 
     //Group constructor
-    public Group(String className, String instructor){
+    public Group(String className, String instructor, String creator){
         this.className = className;
         this.instructor = instructor;
+        this.creator = creator;
     }
 
     //Settors and Getteors for each of the variables in a group
@@ -67,5 +68,9 @@ public class Group implements Serializable {
 
     public void setGroupId(int groupId) {
         this.groupId = groupId;
+    }
+
+    public String getCreator() {
+        return creator;
     }
 }

@@ -12,34 +12,31 @@ public class Post implements Serializable{
 
     //Instance variables for each Post that is created
     private String className, instructor,location;
-    private User creator;
-    private double time;
+    private String creator;
+    private double starttime, endtime;
     private String date;
 
 
     //Post constructor
     public Post (String className, String instructor, String location,
-                 double time, String date, String creator){
+                 double starttime, double endtime, String date, String creator){
         this.className = className;
         this.instructor = instructor;
         this.location = location;
-        this.time = time;
-        //this.creator = creator;
+        this.starttime = starttime;
+        this.endtime = endtime;
+        this.creator = creator;
         this.date = date;
     }
 
 
     //All of the setting and getting methods for different instance variables
-    public String getCreatorName() {
-        return creator.getFirstName() + " " + creator.getLastName();
-    }
-
     public String getCreatorUsername(){
-        return "sjchristens3";
+        return creator;
     }
 
     public String getCreatorEmail(){
-        return "sjchristens3@wisc.edu";
+        return creator + "@wisc.edu";
     }
 
     public String getClassName() {
@@ -66,12 +63,20 @@ public class Post implements Serializable{
         this.location = location;
     }
 
-    public double getTime() {
-        return time;
+    public double getStartTime() {
+        return starttime;
     }
 
-    public void setTime(int time) {
-        this.time = time;
+    public double getEndTime() {
+        return endtime;
+    }
+
+    public void setStartTime(int starttime) {
+        this.starttime = starttime;
+    }
+
+    public void setEndTime(int endtime) {
+        this.endtime = endtime;
     }
 
     public String getDate() {

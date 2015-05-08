@@ -55,10 +55,10 @@ public class PostDetailPopup extends Dialog {
 
         //if(post.getUndefined())
             //time.setText("Until the end of the night");
-        if(post.getTime() <= 12)
-            time.setText("Until " + post.getTime() + "am");
+        if(post.getStartTime() <= 12)
+            time.setText("Until " + post.getStartTime() + "am");
         else {
-            int thetime = (int) post.getTime() - 12;
+            int thetime = (int) post.getStartTime() - 12;
             time.setText("Until " + thetime + "pm");
         }
 

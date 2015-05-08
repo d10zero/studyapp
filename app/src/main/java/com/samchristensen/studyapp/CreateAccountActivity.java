@@ -30,8 +30,8 @@ import Model.User;
 public class CreateAccountActivity extends Activity {
 
     EditText firstName, lastName, email, password;
-    String firstNameWord, lastNameWord, emailWord, usernameWord, passwordWord;
-    String TAG = "CreateAccountServer";
+    String firstNameWord, lastNameWord, emailWord, passwordWord;
+    String TAG = "ConnectionManager";
 
 
     @Override
@@ -72,12 +72,13 @@ public class CreateAccountActivity extends Activity {
             //Check input provided is valid
             validateInput();
 
-            School school = new School();
-            User user =  new User(firstNameWord, lastNameWord, usernameWord, emailWord, passwordWord, school);
+            final School school = new School();
+            User user =  new User(firstNameWord, lastNameWord, emailWord, passwordWord, school);
             Log.d(TAG, "we are here");
             Backend.createNewUser(new Backend.BackendCallback() {
                 @Override
                 public void onRequestCompleted(Object result) {
+                    ((User) result).setSchool(school);
                     Log.d(TAG, "New User Successfully Created");
                 }
 
@@ -90,7 +91,7 @@ public class CreateAccountActivity extends Activity {
             SharedPreferences sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
 
-            editor.putString("username", usernameWord);
+            editor.putString("username", emailWord.substring(0, emailWord.length()-9));
             editor.putString("password", passwordWord);
 
             editor.commit();
@@ -106,11 +107,13 @@ public class CreateAccountActivity extends Activity {
             toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
             toast.show();
 
+            /*
             //Move user to the homepage, passing along the user object and school
             Intent intent = new Intent(this, HomePageActivity.class);
             intent.putExtra("User", user);
             intent.putExtra("School", school);
             startActivity(intent);
+            */
 
         }
         catch(Exception e) {
@@ -177,7 +180,6 @@ public class CreateAccountActivity extends Activity {
         firstNameWord = firstName.getText().toString();
         lastNameWord = lastName.getText().toString();
         emailWord = email.getText().toString();
-        usernameWord = emailWord.substring(0, emailWord.length() - 9);
         passwordWord = password.getText().toString();
 
         //Check if firstName and lastName are provided
