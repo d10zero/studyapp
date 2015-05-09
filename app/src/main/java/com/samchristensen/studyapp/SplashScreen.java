@@ -32,7 +32,7 @@ public class SplashScreen extends Activity {
             startActivity(intent);
         }
         else{
-            Log.d(TAG, "Trying to login");
+            Log.d(TAG, "Trying to login as " + username);
             Backend.login(new Backend.BackendCallback() {
                 @Override
                 public void onRequestCompleted(Object result) {
@@ -55,7 +55,6 @@ public class SplashScreen extends Activity {
                 @Override
                 public void onRequestFailed(String message) {
                     Log.d(TAG, "Failed to retrieve user");
-                    Toast.makeText(context, "Error With Server", Toast.LENGTH_SHORT).show();
                 }
             }, username, password);
         }

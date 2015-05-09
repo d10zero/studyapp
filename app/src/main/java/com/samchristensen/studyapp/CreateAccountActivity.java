@@ -73,12 +73,12 @@ public class CreateAccountActivity extends Activity {
             validateInput();
 
             final School school = new School();
-            User user =  new User(firstNameWord, lastNameWord, emailWord, passwordWord, school);
+            final User user =  new User(firstNameWord, lastNameWord, emailWord, passwordWord, school);
             Log.d(TAG, "we are here");
             Backend.createNewUser(new Backend.BackendCallback() {
                 @Override
                 public void onRequestCompleted(Object result) {
-                    ((User) result).setSchool(school);
+                    user.setSchool(school);
                     Log.d(TAG, "New User Successfully Created");
                 }
 
@@ -107,14 +107,12 @@ public class CreateAccountActivity extends Activity {
             toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
             toast.show();
 
-            /*
+
             //Move user to the homepage, passing along the user object and school
             Intent intent = new Intent(this, HomePageActivity.class);
             intent.putExtra("User", user);
             intent.putExtra("School", school);
             startActivity(intent);
-            */
-
         }
         catch(Exception e) {
             errorMessage(e.getMessage());
