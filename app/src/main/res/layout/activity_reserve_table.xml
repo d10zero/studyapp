@@ -1,11 +1,26 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/container"
     android:layout_height="match_parent"
     tools:context="com.samchristensen.studyapp.ReserveTable">
 
     <WebView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/reservetable_webview"></WebView>
+        android:id="@+id/reservetable_webview"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/toApp"
+        android:layout_weight="4"></WebView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Return to App"
+        android:id="@+id/toApp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="1" />
+
 
 </RelativeLayout>
