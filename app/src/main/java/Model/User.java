@@ -71,4 +71,8 @@ public class User extends SugarRecord<User> implements Serializable  {
     public void setSchool(School school) {
         this.school = school;
     }
+
+    public School getSchool() {
+        return school;
+    }
 }

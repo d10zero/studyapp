@@ -21,14 +21,12 @@ import Model.User;
 public class CreatePopup extends Dialog {
 
     private User user;
-    private School school;
     private Context context;
 
-    public CreatePopup(Context context, User user, School school) {
+    public CreatePopup(Context context, User user) {
         super(context);
         this.context = context;
         this.user = user;
-        this.school = school;
     }
 
     @Override
@@ -48,7 +46,6 @@ public class CreatePopup extends Dialog {
             public void onClick(View v) {
                 Intent intent = new Intent(context, Create.class);
                 intent.putExtra("User", user);
-                intent.putExtra("School", school);
                 intent.putExtra("Post", false);
                 context.startActivity(intent);
             }
@@ -59,7 +56,6 @@ public class CreatePopup extends Dialog {
             public void onClick(View v) {
                 Intent intent = new Intent(context, Create.class);
                 intent.putExtra("User", user);
-                intent.putExtra("School", school);
                 intent.putExtra("Post", true);
                 context.startActivity(intent);
             }

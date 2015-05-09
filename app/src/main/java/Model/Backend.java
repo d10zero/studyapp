@@ -64,10 +64,17 @@ public class Backend {
             @Override
             public void onSuccess() {
                 JsonObject result = getContent().getAsJsonObject();
+                String success = result.get("login").getAsString();
 
-                //log the successful connection
-                Log.d(TAG, "Successfully logged in as " + username);
-                callback.onRequestCompleted(getContent());
+                if(success.equals("success")) {
+                    //log the successful connection
+                    Log.d(TAG, "Successfully logged in as " + username);
+                    callback.onRequestCompleted(getContent());
+                }
+                else{
+                    Log.d(TAG, "Failed to login as " + username);
+                    callback.onRequestFailed("Connection Failed");
+                }
             }
 
             //if the connection/response fails
@@ -114,6 +121,96 @@ public class Backend {
                 //log the successful connection
                 Log.d(TAG, "Successfully created new post");
                 callback.onRequestCompleted(getContent());
+            }
+
+            //if the connection/response fails
+            @Override
+            public void onFailure() {
+                Log.d(TAG, "Failed trying to create a new group");
+                callback.onRequestFailed("Connection Failed");
+            }
+        });
+
+    }
+
+    public static void createNewGroupPost(final BackendCallback callback, final Post post, final int groupid){
+
+        //Set url for AsyncHttp request
+        AsyncHttpClient client = new AsyncHttpClient(SERVER_URL);
+        StringEntity jsonParams = null;
+
+        //Set up HTTP Request headers to accept JSON response and Send JSON
+        List<Header> headers = new ArrayList<Header>();
+        headers.add(new BasicHeader("Accept", "application/json"));
+        headers.add(new BasicHeader("Content-Type", "application/json"));
+
+        try {
+            JSONObject thepost = new JSONObject();
+            thepost.put("classname", post.getClassName());
+            thepost.put("instructor", post.getInstructor());
+            thepost.put("location", post.getInstructor());
+            thepost.put("creator", post.getCreatorUsername());
+            thepost.put("date", post.getDate());
+            thepost.put("starttime", post.getStartTime());
+            thepost.put("endtime", post.getEndTime());
+            thepost.put("group_id", groupid);
+            jsonParams = new StringEntity(thepost.toString());
+        }
+        catch(Exception e){
+            Log.d(TAG2, "error setting up new post");
+        }
+
+        //attempt to make connection and get JSON response
+        client.post("posts", jsonParams, headers, new JsonResponseHandler() {
+            //if the connection/response succeeds
+            @Override
+            public void onSuccess() {
+                //log the successful connection
+                Log.d(TAG, "Successfully created new post");
+                callback.onRequestCompleted(getContent());
+            }
+
+            //if the connection/response fails
+            @Override
+            public void onFailure() {
+                Log.d(TAG, "Failed trying to create a new group");
+                callback.onRequestFailed("Connection Failed");
+            }
+        });
+
+    }
+
+    public static void addNewGroupToUser(final BackendCallback callback, final int groupid,
+                                         final String username){
+
+        //Set url for AsyncHttp request
+        AsyncHttpClient client = new AsyncHttpClient(SERVER_URL);
+        StringEntity jsonParams = null;
+
+        //Set up HTTP Request headers to accept JSON response and Send JSON
+        List<Header> headers = new ArrayList<Header>();
+        headers.add(new BasicHeader("Accept", "application/json"));
+        headers.add(new BasicHeader("Content-Type", "application/json"));
+
+        try {
+            JSONObject group_id = new JSONObject();
+            group_id.put("group_id", groupid);
+            group_id.put("username", username);
+            jsonParams = new StringEntity(group_id.toString());
+        }
+        catch(Exception e){
+            Log.d(TAG2, "error setting up new group");
+        }
+
+        //attempt to make connection and get JSON response
+        client.post("users/groups", jsonParams, headers, new JsonResponseHandler() {
+            //if the connection/response succeeds
+            @Override
+            public void onSuccess() {
+                JsonObject object = getContent().getAsJsonObject();
+                //log the successful connection
+
+                callback.onRequestCompleted(object);
             }
 
             //if the connection/response fails
@@ -290,9 +387,9 @@ public class Backend {
                     instructor = object.get("instructor").getAsString();
                     posts.add(new Post(classname, instructor, location, starttime, endtime, date, creator));
                 }
+                Log.d(TAG, "Successful server connection getting all posts");
 
                 //log the successful connection
-                Log.d(TAG, "Successful server connection getting all posts");
                 callback.onRequestCompleted(posts);
             }
 
@@ -320,7 +417,7 @@ public class Backend {
             //if the connection/response succeeds
             @Override
             public void onSuccess() {
-
+                Log.d(TAG, "Successful server connection getting all groups");
                 JsonArray jsonObject = getContent().getAsJsonArray();
 
                 ArrayList<Group> groups = new ArrayList<Group>();
@@ -328,7 +425,6 @@ public class Backend {
                     groups.add(unpackGroup(jsonObject.get(i).getAsJsonObject()));
 
                 //log the successful connection
-                Log.d(TAG, "Successful server connection getting all groups");
                 callback.onRequestCompleted(groups);
             }
 

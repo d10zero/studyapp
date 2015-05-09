@@ -49,8 +49,9 @@ public class MyGroupsPopup extends Dialog {
 
         lv = (ListView) findViewById(R.id.groupview_listview);
 
-        GroupsArrayAdapter adapter = new GroupsArrayAdapter(groups);
+        GroupsArrayAdapter adapter = new GroupsArrayAdapter(groups, user.getUserName(), false);
         lv.setAdapter(adapter);
+
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

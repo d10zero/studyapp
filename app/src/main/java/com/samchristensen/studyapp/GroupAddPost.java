@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import Model.Backend;
 import Model.Group;
 import Model.Post;
 import Model.User;
@@ -24,7 +25,7 @@ public class GroupAddPost extends Activity {
         setContentView(R.layout.activity_group_add_post);
 
         intent = getIntent();
-        final User user = (User) intent.getSerializableExtra("User");
+        user = (User) intent.getSerializableExtra("User");
 
         //Hook all elements up to the coressponding UI elements
         final EditText content;
@@ -39,8 +40,14 @@ public class GroupAddPost extends Activity {
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Post post = new Post(content.getText().toString(), "", "", 0, 0, "", user.getUserName());
-                ((Group) intent.getSerializableExtra("Group")).addPost(post);
+                Backend.createNewGroupPost(new Backend.BackendCallback() {
+                    @Override
+                    public void onRequestCompleted(Object result) {}
+
+                    @Override
+                    public void onRequestFailed(String message) {}
+                }, new Post(content.getText().toString(), "", "", 0, 0, "", user.getUserName()),
+                        ((Group) intent.getSerializableExtra("Group")).getGroupId());
                 switchViews(GroupDetailView.class);
             }
         });

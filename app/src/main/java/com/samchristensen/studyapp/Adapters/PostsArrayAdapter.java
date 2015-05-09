@@ -50,11 +50,9 @@ public class PostsArrayAdapter extends BaseAdapter {
         TextView instructor = (TextView) convertView.findViewById(R.id.post_instructor);
         TextView time = (TextView) convertView.findViewById(R.id.post_time);
 
-        Post post = posts.get(position);
-
-        subject.setText(post.getClassName());
-        location.setText(post.getLocation());
-        instructor.setText(post.getInstructor());
+        subject.setText(posts.get(position).getClassName());
+        location.setText(posts.get(position).getLocation());
+        instructor.setText(posts.get(position).getInstructor());
 
         time.setText("All day/night");
 

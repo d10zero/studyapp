@@ -32,13 +32,6 @@ public class School implements Serializable{
 
     //Create dummy content for testing the app
     public School(){
-        for(int i = 0; i < 13; i++){
-            posts.add(new Post(classes[i], instructors[i], classroom[i] + (100 + i),
-                    13, 12, "", "SJCHRISTENS3"));
-        }
-        for(int i = 0; i < 13; i++){
-            groups.add(new Group(classes[i], instructors[i], "sjchristens3"));
-        }
     }
 
     public void addGroup(Group group){

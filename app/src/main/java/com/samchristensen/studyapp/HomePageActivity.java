@@ -33,10 +33,7 @@ import Model.User;
 
 public class HomePageActivity extends Activity {
 
-    ArrayList<Post> posts;
-    ArrayList<Group> groups;
-    static School school;
-    static User user;
+    public User user;
     Context context = this;
     ListView postslv, groupslv;
     TextView title, postsbutton, groupsbutton, searchexit;
@@ -44,7 +41,9 @@ public class HomePageActivity extends Activity {
     EditText searchfield;
     Button reserveRoom;
     boolean searchOpen = false;
-    String TAG = "HomePageConnection";
+    PostsArrayAdapter postsAdapter;
+    GroupsArrayAdapter groupsadapter;
+    String TAG = "ConnectionManager";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,19 +55,18 @@ public class HomePageActivity extends Activity {
         Intent intent = getIntent();
 
         boolean InsideApp = intent.getBooleanExtra("InsideApp", false);
-        if(InsideApp){
-            if(intent.getSerializableExtra("User") != null)
+        if (InsideApp) {
+            if (intent.getSerializableExtra("User") != null) {
                 user = (User) intent.getSerializableExtra("User");
-            if(intent.getSerializableExtra("School") != null)
-                school = (School) intent.getSerializableExtra("School");
+                user.setSchool(new School());
+            }
         }
         Log.d(TAG, "Attempting to load in groups");
         Backend.getGroups(new Backend.BackendCallback() {
             @Override
             public void onRequestCompleted(Object result) {
                 Log.d(TAG, "Server loaded groups");
-                school.addGroupGroup((ArrayList<Group>) result);
-                groups = school.getGroups();
+                user.getSchool().addGroupGroup((ArrayList<Group>) result);
             }
 
             @Override
@@ -82,8 +80,7 @@ public class HomePageActivity extends Activity {
             @Override
             public void onRequestCompleted(Object result) {
                 Log.d(TAG, "Server loaded posts");
-                school.addPostsGroup((ArrayList<Post>) result);
-                posts = school.getPosts();
+                user.getSchool().addPostsGroup((ArrayList<Post>) result);
             }
 
             @Override
@@ -93,7 +90,6 @@ public class HomePageActivity extends Activity {
         });
 
 
-
         //Hookup ImageView to corresponding UI elements
         createIcon = (ImageView) findViewById(R.id.homepage_createPost);
         accountIcon = (ImageView) findViewById(R.id.homepage_accountinfo);
@@ -101,7 +97,7 @@ public class HomePageActivity extends Activity {
         myGroups = (ImageView) findViewById(R.id.homepage_myGroups);
 
         //Hookup EditText to corresponding UI element
-        searchfield =(EditText) findViewById(R.id.homepage_searchfield);
+        searchfield = (EditText) findViewById(R.id.homepage_searchfield);
 
         //Hookup TextView to corresponding UI element
         searchexit = (TextView) findViewById(R.id.homepage_exitsearch);
@@ -112,14 +108,14 @@ public class HomePageActivity extends Activity {
         postsbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    switchListView(View.VISIBLE, View.GONE, "Posts");
+                switchListView(View.VISIBLE, View.GONE, "Posts");
             }
         });
 
         groupsbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    switchListView(View.GONE, View.VISIBLE, "Groups");
+                switchListView(View.GONE, View.VISIBLE, "Groups");
             }
         });
 
@@ -138,13 +134,14 @@ public class HomePageActivity extends Activity {
         postslv = (ListView) findViewById(R.id.homepage_listviewposts);
         groupslv = (ListView) findViewById(R.id.homepage_listviewgroups);
 
-
         //Populate the ListView with temporary postContent
-        final PostsArrayAdapter postsAdapter = new PostsArrayAdapter(this.posts);
-       // postslv.setAdapter(postsAdapter);
 
-        final GroupsArrayAdapter groupsadapter = new GroupsArrayAdapter(this.groups);
-       // groupslv.setAdapter(groupsadapter);
+        postsAdapter = new PostsArrayAdapter(user.getSchool().getPosts());
+        postslv.setAdapter(postsAdapter);
+
+        groupsadapter = new GroupsArrayAdapter(user.getSchool().getGroups(),
+                user.getUserName(), true);
+        groupslv.setAdapter(groupsadapter);
 
 
         //setOnClick Actions for each of the UI elements
@@ -161,7 +158,7 @@ public class HomePageActivity extends Activity {
         createIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CreatePopup popup = new CreatePopup(context, user, school);
+                CreatePopup popup = new CreatePopup(context, user);
                 popup.show();
             }
         });
@@ -179,12 +176,11 @@ public class HomePageActivity extends Activity {
         searchIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!searchOpen) {
+                if (!searchOpen) {
                     searchField(View.GONE, View.VISIBLE, RelativeLayout.ALIGN_PARENT_RIGHT,
                             RelativeLayout.ALIGN_PARENT_LEFT);
                     searchOpen = true;
-                }
-                else{
+                } else {
                     String searchterm = searchfield.getText().toString().toUpperCase();
                     searchLists(searchterm, groupslv, true);
                     searchLists(searchterm, postslv, false);
@@ -212,10 +208,11 @@ public class HomePageActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 //Get the post that was clicked and pass it on to the delegate popup
-                PostDetailPopup popup = new PostDetailPopup(context, HomePageActivity.this.posts.get(position));
+                PostDetailPopup popup = new PostDetailPopup(context, user.getSchool().getPosts().get(position));
                 popup.show();
             }
         });
+
     }
 
 
@@ -223,7 +220,6 @@ public class HomePageActivity extends Activity {
     private void switchViews(Class switchTo){
         Intent intent = new Intent(this, switchTo);
         intent.putExtra("User", user);
-        intent.putExtra("School", school);
         intent.putExtra("Groups", user.getGroups());
         startActivity(intent);
     }
@@ -266,26 +262,24 @@ public class HomePageActivity extends Activity {
     private void searchLists(String searchterm, ListView lv, boolean x){
         if(x) {
             ArrayList<Group> searchedGroups = new ArrayList<Group>();
-            for (int i = 0; i < groups.size(); i++) {
-                if (groups.get(i).getClassName().toUpperCase().contains(searchterm)) {
-                    searchedGroups.add(groups.get(i));
+            for (int i = 0; i < user.getSchool().getGroups().size(); i++) {
+                if (user.getSchool().getGroups().get(i).getClassName().toUpperCase().contains(searchterm)) {
+                    searchedGroups.add(user.getSchool().getGroups().get(i));
                 }
             }
-            GroupsArrayAdapter adapter = new GroupsArrayAdapter(searchedGroups);
+            GroupsArrayAdapter adapter = new GroupsArrayAdapter(searchedGroups, user.getUserName(), true);
             lv.setAdapter(adapter);
 
         }
         else{
             ArrayList<Post> searchedPosts = new ArrayList<Post>();
-            for(int i = 0; i < posts.size(); i++){
-                if(posts.get(i).getClassName().toUpperCase().contains(searchterm)){
-                    searchedPosts.add(posts.get(i));
+            for(int i = 0; i < user.getSchool().getPosts().size(); i++){
+                if(user.getSchool().getPosts().get(i).getClassName().toUpperCase().contains(searchterm)){
+                    searchedPosts.add(user.getSchool().getPosts().get(i));
                 }
             }
             PostsArrayAdapter adapter = new PostsArrayAdapter(searchedPosts);
             lv.setAdapter(adapter);
         }
-
-
     }
 }

@@ -123,9 +123,9 @@ ADDED from AndroidManifest.xml:66:17
 	android:name
 		ADDED from AndroidManifest.xml:66:25
 category#android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:68:17
+ADDED from AndroidManifest.xml:67:17
 	android:name
-		ADDED from AndroidManifest.xml:68:27
+		ADDED from AndroidManifest.xml:67:27
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
 MERGED from com.android.support:appcompat-v7:21.0.3:15:5

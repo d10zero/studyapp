@@ -1,6 +1,6 @@
 package com.samchristensen.studyapp.Adapters;
-
-import android.content.Context;
+;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +11,7 @@ import com.samchristensen.studyapp.R;
 
 import java.util.ArrayList;
 
+import Model.Backend;
 import Model.Group;
 
 /**
@@ -19,11 +20,13 @@ import Model.Group;
 public class GroupsArrayAdapter extends BaseAdapter {
 
     private ArrayList<Group> groups = new ArrayList<Group>();
-    private Context context;
+    private final String username;
+    private final boolean displayAdd;
 
-    public GroupsArrayAdapter(ArrayList<Group> groups){
+    public GroupsArrayAdapter(ArrayList<Group> groups, String username, boolean displayAdd){
         this.groups = groups;
-        this.context = context;
+        this.username = username;
+        this.displayAdd = displayAdd;
     }
 
     @Override
@@ -49,14 +52,37 @@ public class GroupsArrayAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.groups_row, parent,false);
         }
 
-        TextView name, instructor, numberofmembers;
+        TextView name, instructor, numberofmembers, add;
         name = (TextView) convertView.findViewById(R.id.mygroups_groupname);
         instructor = (TextView) convertView.findViewById(R.id.mygroups_instructorname);
         numberofmembers = (TextView) convertView.findViewById(R.id.mygroups_nummembers);
+        add = (TextView) convertView.findViewById(R.id.mygroups_addgroup);
 
         name.setText( groups.get(position).getClassName());
         instructor.setText( groups.get(position).getInstructor());
-        numberofmembers.setText("Members : " +  groups.get(position).getMembers().size());
+        numberofmembers.setText("Members : " + groups.get(position).getMembers().size());
+
+        if(displayAdd) {
+            add.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Backend.addNewGroupToUser(new Backend.BackendCallback() {
+                        @Override
+                        public void onRequestCompleted(Object result) {
+                            Log.d("ConnectionManager", "Successfully added group to user");
+                        }
+
+                        @Override
+                        public void onRequestFailed(String message) {
+                            Log.d("ConnectionManager", "Failed to add group to user");
+                        }
+                    }, groups.get(position).getGroupId(), username);
+                }
+            });
+        }
+        else{
+            add.setVisibility(View.GONE);
+        }
 
         return convertView;
     }

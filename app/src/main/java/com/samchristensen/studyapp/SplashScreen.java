@@ -15,7 +15,7 @@ import Model.User;
 
 public class SplashScreen extends Activity {
 
-    String TAG = "SplashScreenConnection";
+    String TAG = "ConnectionManager";
     Context context = this;
 
     @Override
@@ -24,22 +24,31 @@ public class SplashScreen extends Activity {
         setContentView(R.layout.activity_splash_screen);
 
         SharedPreferences sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
-        String username = sharedPreferences.getString("username", null);
-        String password = sharedPreferences.getString("password", null);
+        final String username = sharedPreferences.getString("username", null);
+        final String password = sharedPreferences.getString("password", null);
 
         if(username == null || password == null){
             Intent intent = new Intent(this, CreateAccountActivity.class);
             startActivity(intent);
         }
-
         else{
+            Log.d(TAG, "Trying to login");
             Backend.login(new Backend.BackendCallback() {
                 @Override
                 public void onRequestCompleted(Object result) {
                     Log.d(TAG, "Successfully retrieved user");
+
+                    SharedPreferences sharedPreferences2 = getSharedPreferences("UserData", MODE_PRIVATE);
+                    String firstname = sharedPreferences2.getString("firstname", null);
+                    String lastname = sharedPreferences2.getString("lastname", null);
+
+                    User user = new User(firstname, lastname, username + "@wisc.edu", password, new School());
+
+
                     Intent intent = new Intent(context, HomePageActivity.class);
-                    intent.putExtra("User",((User) result));
-                    intent.putExtra("School", new School());
+                    intent.putExtra("User", user);
+                    intent.putExtra("School", user.getSchool());
+                    intent.putExtra("InsideApp", true);
                     startActivity(intent);
                 }
 
